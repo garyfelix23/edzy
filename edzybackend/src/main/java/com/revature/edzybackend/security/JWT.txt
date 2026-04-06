@@ -1,0 +1,6 @@
+JWT:
+ -> JWT (JSON Web Token) is used to verify user data without storing the session data. And it is
+used for Stateless Authentication & Authorization.
+ -> When user logs in, server creates a token and send it to the frontend. The frontend stores this
+token and sends it back every subsequent request. The server reads this token to find who the user
+is.

@@ -1,0 +1,4 @@
+Why DTO?
+-> The User model contains the hashed password, and if we return the object directly from the
+API, the password hash is sent to the frontend, this will be a security risk.
+-> DTOs are POJO that carry only the data you want to send or receive.

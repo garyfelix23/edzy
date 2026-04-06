@@ -1,0 +1,15 @@
+# Node (React)
+edzyfrontend/node_modules
+edzyfrontend/build
+
+# Java (Spring Boot)
+edzybackend/target
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
