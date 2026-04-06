@@ -1,21 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
-import { getAllCourses } from '../services/api';
 
 function Footer() {
-
-    const [courses, setCourses] = useState([]);
-
-    useEffect(() => {
-        getAllCourses
-        .then((data) => {
-            if(Array.isArray(data)){
-                setCourses(data);
-            }
-        })
-        .c
-    }, []);
 
     return (
         <footer className="footer">
