@@ -28,7 +28,6 @@
     font-style: normal;
 }
 
-/* Filters */
 .filters-bar {
     display: flex;
     gap: 16px;
@@ -94,14 +93,12 @@
     margin-bottom: 24px;
 }
 
-/* Grid */
 .courses-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 24px;
 }
 
-/* Card */
 .course-card {
     background: white;
     border-radius: 16px;
@@ -128,7 +125,6 @@
     display: block;
 }
 
-/* Level badges */
 .level-badge {
     position: absolute;
     top: 12px;
@@ -219,7 +215,6 @@
     margin-bottom: 10px;
 }
 
-/* No results */
 .no-results {
     text-align: center;
     padding: 80px 0;
@@ -248,7 +243,6 @@
     font-weight: 600;
 }
 
-/* Loading */
 .loading {
     text-align: center;
     padding: 80px;

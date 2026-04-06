@@ -7,10 +7,6 @@
     border-bottom: 1px solid gray;   
 }
 
-.navbar .nav-left{
-
-}
-
 .navbar .nav-left .navbar-brand{
     text-decoration: none;
 }
@@ -20,10 +16,6 @@
     font-size: 24px;
     font-family: 'Courier New', Courier, monospace;
     font-weight: 700;
-    
-}
-
-.navbar .nav-right{
     
 }
 

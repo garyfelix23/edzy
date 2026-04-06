@@ -186,7 +186,7 @@ function CourseDetail() {
                                     {enrolling
                                         ? 'Enrolling...'
                                         : token
-                                            ? '🚀 Start Learning'
+                                            ? 'Start Learning'
                                             : '🔒 Login to Start'}
                                 </button>
                             </div>

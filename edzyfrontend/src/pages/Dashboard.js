@@ -43,8 +43,6 @@ function Dashboard() {
 
     return (
         <div className="dashboard-page">
-
-            {/* Header */}
             <div className="dashboard-header">
                 <div>
                     <h1>Welcome back, {name}! 👋</h1>
@@ -58,7 +56,6 @@ function Dashboard() {
                 </button>
             </div>
 
-            {/* Stats */}
             <div className="stats-grid">
                 <div className="stat-card stat-blue">
                     <div className="stat-number">{courses.length}</div>
@@ -78,7 +75,6 @@ function Dashboard() {
                 </div>
             </div>
 
-            {/* Course List */}
             <h2 className="section-title">My Courses</h2>
 
             {courses.length === 0 ? (

@@ -61,7 +61,6 @@ function Home() {
                         )}
                     </div>
 
-                    {/* Stats row */}
                     <div className="hero-stats">
                         {stats.map(s => (
                             <div key={s.label} className="stat-item">
@@ -148,7 +147,6 @@ function Home() {
                 </div>
             </section>
 
-            {/* CTA Section - this section is shown only when user not logged in */}
             {!token && (
                 <section className="cta-section">
                     <h2 className="cta-h2">Ready to Start Learning?</h2>

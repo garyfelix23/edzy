@@ -13,7 +13,6 @@
     gap: 40px;
 }
 
-/* Brand */
 .footer-logo {
     color: white;
     font-size: 24px;
@@ -32,7 +31,6 @@
     font-style: normal;
 }
 
-/* Link groups */
 .footer-links-group {
     display: flex;
     flex-direction: column;
@@ -65,7 +63,6 @@
     color: white;
 }
 
-/* Bottom bar */
 .footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.08);
     padding: 20px 32px;

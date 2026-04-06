@@ -15,10 +15,8 @@ function Navbar(){
 
     return (
         <nav className='navbar'>
-            {/* Logo */}
             <div className="nav-left">
                 <Link to="/" className="navbar-brand">
-                    {/* <span className="logo-icon">icon</span> */}
                     <span className="logo-text">Edzy</span>
                 </Link>
             </div>

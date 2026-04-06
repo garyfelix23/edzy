@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
+import { getAllCourses } from '../services/api';
 
 function Footer() {
+
+    const [courses, setCourses] = useState([]);
+
+    useEffect(() => {
+        getAllCourses
+        .then((data) => {
+            if(Array.isArray(data)){
+                setCourses(data);
+            }
+        })
+        .c
+    }, []);
+
     return (
         <footer className="footer">
             <div className="footer-inner">
 
-                {/* Brand */}
                 <div className="footer-brand">
                     <div className="footer-logo">Edzy</div>
                     <p className="footer-tagline">
@@ -16,18 +29,11 @@ function Footer() {
                     </p>
                 </div>
 
-                {/* Links */}
                 <div className="footer-links-group">
                     <h4>Platform</h4>
                     <Link to="/">Home</Link>
                     <Link to="/courses">Courses</Link>
                     <Link to="/dashboard">Dashboard</Link>
-                </div>
-
-                <div className="footer-links-group">
-                    <h4>Account</h4>
-                    <Link to="/login">Login</Link>
-                    <Link to="/register">Register</Link>
                 </div>
 
                 <div className="footer-links-group">
