@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Arima:wght@100..700&display=swap');
+
+.form-container {
+    max-width: 420px;
+    margin: 60px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(255, 0, 0, 0.08);
+}
+
+.form-container h2 {
+    font-size: 26px;
+    font-weight: 800;
+    color: #1f2937;
+    text-align: center;
+    margin-bottom: 6px;
+    font-family: "Arima", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.form-title {
+    color: #ff0000;
+    font-family: 'Arima', system-ui;
+    font-weight: 700;
+}
+
+.form-subtitle {
+    text-align: center;
+    color: #6b7280;
+    font-size: 14px;
+    margin-bottom: 28px;
+    font-family: 'Arima', system-ui;
+    font-weight: 700;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #374151;
+    font-family: "Arima", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s;
+    color: #1f2937;
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.form-group input:focus {
+    border-color: #ff0000;
+}
+
+.login-btn {
+    background-color: white;
+    border-color: #6b728044;
+    /* border-bottom-color: #ff0000; */
+    /* border-left-color: #ff0000; */
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    transition: all 0.2s;
+}
+
+.login-btn:hover{
+    border: white;
+    background: #6fff00;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(229, 70, 70, 0.3);
+}
+
+.error-msg {
+    color: #ef4444;
+    font-size: 13px;
+    margin-bottom: 12px;
+    text-align: center;
+    background: #fef2f2;
+    padding: 8px;
+    border-radius: 6px;
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.form-footer a {
+    color: #ff0000;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.form-footer a:hover {
+    text-decoration: underline;
+}
