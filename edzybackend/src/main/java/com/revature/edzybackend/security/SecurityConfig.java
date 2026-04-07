@@ -32,8 +32,16 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable()) // csrf is used for browser session, since we're using jwt, so disabling it
                 .sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // making session stateless
                 .authorizeHttpRequests(auth -> auth
+                        // public endpoints - no authentication (login/register) needed
                         .requestMatchers("/api/auth/**").permitAll() // anyone can access
                         .requestMatchers(HttpMethod.GET, "/api/courses/**").permitAll() // anyone can access course
+
+                        // instructor only endpoints
+                        .requestMatchers(HttpMethod.POST, "/api/courses/**").hasRole("INSTRUCTOR")
+                        .requestMatchers(HttpMethod.PUT, "/api/courses/**").hasRole("INSTRUCTOR")
+                        .requestMatchers(HttpMethod.DELETE, "/api/courses/**").hasRole("INSTRUCTOR")
+
+                        // Student and Instructor needs to be authenticated before using this endpoint
                         .anyRequest().authenticated()  // everything needs JWT Token
                 )
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class); // runs the JwtFilter

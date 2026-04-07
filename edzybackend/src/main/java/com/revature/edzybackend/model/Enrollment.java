@@ -4,6 +4,9 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Document(collection = "enrollments")
 @Data
 public class Enrollment {
@@ -12,6 +15,10 @@ public class Enrollment {
 
     private String userId;
     private String courseId;
+
+    // list for completed modules and based on this the progress is calculated
+    private List<String> completedModules = new ArrayList<>();
+
     private int progressPercentage = 0; // initial progress is set to 0% by default
     private boolean completed = false;  // this changes automatically when user completes the course
 }

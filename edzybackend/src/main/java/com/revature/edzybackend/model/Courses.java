@@ -19,10 +19,14 @@ public class Courses {
     private String title;
     private String description;
     private String instructorName;
+    private String instructorId;
     private String imageLink;
+    // this video link is kept because for the existing course (one length course) without module
     private String videoLink;
     private String level;
     private List<String> tags;
     private String duration;
     private String category;
+
+    private List<Module> modules;  // modules inside the courses
 }

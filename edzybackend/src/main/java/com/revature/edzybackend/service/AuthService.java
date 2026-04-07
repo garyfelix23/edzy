@@ -33,6 +33,8 @@ public class AuthService {
         this.jwtUtil = jwtUtil;
     }
 
+    // register logic - we're assigning the data which comes from controller to repo (service layer is intermediate)
+    // before that, we are passing the email and role into generateToken method for JWT.
     public AuthResponse register(RegisterRequest req){
         // checks if user email already exists or not
         if(userRepository.existsByEmail(req.getEmail())){
@@ -46,13 +48,15 @@ public class AuthService {
         // the password is encrypted before saved to mongodb
         user.setPassword(passwordEncoder.encode(req.getPassword()));
         // saves the data to mongodb
-        user.setRole("USER");
+        String role = (req.getRole() != null && !req.getRole().isBlank()) ? req.getRole().toUpperCase() : "User";
+        user.setRole(role);
         userRepository.save(user);
 
         // encrypting the email inside token and generating the token
-        String token = jwtUtil.generateToken(user.getEmail());
+        String token = jwtUtil.generateToken(user.getEmail(), user.getRole());
         // returning the response to the frontend, so that, it can be used later.
 //        return new AuthResponse(token, user.getId(), user.getName(), user.getPassword());
+        System.out.println("Incoming role: " + req.getRole());
         return new AuthResponse(token, user.getId(), user.getName(), user.getRole());
     }
 
@@ -66,8 +70,9 @@ public class AuthService {
         }
 
         // returns the token to the frontend
-        String token = jwtUtil.generateToken(user.getEmail());
+        String token = jwtUtil.generateToken(user.getEmail(), user.getRole());
 //        return new AuthResponse(token, user.getId(), user.getName(), user.getPassword());
+        System.out.println("Login Role : "+user.getRole());
         return new AuthResponse(token, user.getId(), user.getName(), user.getRole());
     }
 

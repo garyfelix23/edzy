@@ -86,6 +86,34 @@ public class EnrollmentController {
         }).toList();
     }
 
+    // Complete a module
+    @PostMapping("/{enrollmentId}/complete-module/{moduleId}")
+    public Enrollment completeModule(@PathVariable String enrollmentId, @PathVariable String moduleId){
+        Enrollment e = enrollmentRepository.findById(enrollmentId)
+                .orElseThrow();
+
+        // to verify user ownership
+        if(!e.getUserId().equals(getUserId())){
+            throw new RuntimeException("Unauthorized");
+        }
+
+        Courses course = courseRepository.findById(e.getCourseId()).orElseThrow();
+
+        if(!e.getCompletedModules().contains(moduleId)){
+            e.getCompletedModules().add(moduleId);
+        }
+
+        int totalModules = course.getModules() != null ? course.getModules().size() : 0;
+
+        if (totalModules > 0){
+            int progress = (e.getCompletedModules().size() * 100) / totalModules;
+            e.setProgressPercentage(progress);
+            e.setCompleted(progress >= 100);
+        }
+
+        return enrollmentRepository.save(e);
+    }
+
     @PutMapping("/{id}/progress")
     public Enrollment updateProgress(@PathVariable String id, @RequestParam int percent){
         Enrollment e = enrollmentRepository.findById(id).orElseThrow();

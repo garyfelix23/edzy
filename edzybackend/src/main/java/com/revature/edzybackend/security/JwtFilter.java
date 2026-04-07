@@ -13,6 +13,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 import java.util.Collections;
+import java.util.List;
 
 @Component
 public class JwtFilter extends OncePerRequestFilter { // we're extending OncePerRequestFilter to ensure filter runs once per request
@@ -36,15 +37,21 @@ public class JwtFilter extends OncePerRequestFilter { // we're extending OncePer
             if(jwtUtil.isValid(token)){
                 // Gets the email id stored in token
                 String email = jwtUtil.extractEmail(token);
+                String role = jwtUtil.extractRole(token);
+
+                // used to set role as authority -> ROLE_USER or ROLE_INSTRUCTOR
+                UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(
+                        email, null, List.of(new SimpleGrantedAuthority("ROLE_" + role))
+                );
+
                 // creating authentication object and tells the user is authenticated
-                // UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(email, null, List.of());
-//                UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(email, null, List.of(new SimpleGrantedAuthority("ROLE_USER")));
-                UsernamePasswordAuthenticationToken auth =
-                        new UsernamePasswordAuthenticationToken(
-                                email,
-                                null,
-                                Collections.singletonList(new SimpleGrantedAuthority("ROLE_USER"))
-                        );
+                // working code
+//                UsernamePasswordAuthenticationToken auth =
+//                        new UsernamePasswordAuthenticationToken(
+//                                email,
+//                                null,
+//                                Collections.singletonList(new SimpleGrantedAuthority("ROLE_USER"))
+//                        );
                 // this tells the spring that the user is authenticated.
                 SecurityContextHolder.getContext().setAuthentication(auth);
             }

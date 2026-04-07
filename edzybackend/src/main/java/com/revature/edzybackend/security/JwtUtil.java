@@ -22,9 +22,10 @@ public class JwtUtil {
     }
 
     // to generate token
-    public String generateToken(String email){
+    public String generateToken(String email, String role){
         return Jwts.builder() // this helps to construct HEADER.PAYLOAD.SIGNATURE
                     .setSubject(email)  // stores user's email id inside token
+                    .claim("role", role)
                     .setIssuedAt(new Date()) // when token is created
                     .setExpiration(new Date(System.currentTimeMillis() + EXPIRY))  // Token expiry time (after 24 hours)
                     .signWith(getKey(), SignatureAlgorithm.HS256) // sign in with secret key and algorithm
@@ -39,6 +40,15 @@ public class JwtUtil {
                     .parseClaimsJws(token) // this checks the 1. validation signature 2. Check Expiration 3. Decodes Payload (if anything is wrong, then exception)
                     .getBody() // return data inside the token like { "sub": "user@example.com", "iat": 1710000000, "exp": 1710086400 }
                     .getSubject(); // atlast, it extracts the final email
+    }
+
+    public String extractRole(String token){
+        return Jwts.parserBuilder()
+                .setSigningKey(getKey())
+                .build()
+                .parseClaimsJws(token)
+                .getBody()
+                .get("role", String.class);
     }
 
     // tries to parse the token, if no exception is raised, then extracts the email from token and returns true.
