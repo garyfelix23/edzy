@@ -409,10 +409,13 @@
 }
 
 @media (max-width: 768px) {
+    .home{
+        padding: 0px 20px;
+    }
     .hero {
-        grid-template-columns: 1fr;
-        padding: 40px 0;
-        gap: 40px;
+        grid-template-columns: 1fr; 
+        padding: 40px 20px; 
+        gap: 40px; 
     }
 
     .hero-right {
@@ -426,4 +429,35 @@
     .hero-stats {
         gap: 20px;
     }
+
+    .features-section {
+        padding: 40px;
+    }
+
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 24px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .featured-section {
+        padding: 80px 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .cta-section {
+        background: linear-gradient(135deg, #3e0000, rgb(117, 0, 0));
+        border-radius: 24px;
+        padding: 70px 40px;
+        text-align: center;
+        color: white;
+        margin-top: 60px;
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
+

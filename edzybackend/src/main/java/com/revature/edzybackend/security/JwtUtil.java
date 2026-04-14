@@ -14,6 +14,7 @@ import java.util.Date;
 public class JwtUtil {
     @Value("${jwt.secret}")
     private String SECRET; // this is used to sign the token
+    // This EXPIRY calculates 86,400,000 milliseconds which is 24 hours. After this, user needs to log-in again
     private final long EXPIRY = 1000 * 60 * 60 * 24;  // TOKEN expires after 24 hours
 
     // this method converts the SECRET string into Cryptographic key (uses HMAC SHA Algorithm)
@@ -21,18 +22,18 @@ public class JwtUtil {
         return Keys.hmacShaKeyFor(SECRET.getBytes());
     }
 
-    // to generate token
+    // to generate token - Update: generating token with email and role
     public String generateToken(String email, String role){
         return Jwts.builder() // this helps to construct HEADER.PAYLOAD.SIGNATURE
                     .setSubject(email)  // stores user's email id inside token
-                    .claim("role", role)
+                    .claim("role", role)  // Update: store role in token
                     .setIssuedAt(new Date()) // when token is created
                     .setExpiration(new Date(System.currentTimeMillis() + EXPIRY))  // Token expiry time (after 24 hours)
                     .signWith(getKey(), SignatureAlgorithm.HS256) // sign in with secret key and algorithm
                     .compact(); // converts everything into JWT String
     }
 
-    // input: token output: email stored in token
+    // input: token | output: email stored in token
     public String extractEmail(String token){
         return Jwts.parserBuilder()  // reads the token
                     .setSigningKey(getKey())  // uses secret key and verifies token signature
@@ -42,6 +43,7 @@ public class JwtUtil {
                     .getSubject(); // atlast, it extracts the final email
     }
 
+    // Extract role from token
     public String extractRole(String token){
         return Jwts.parserBuilder()
                 .setSigningKey(getKey())

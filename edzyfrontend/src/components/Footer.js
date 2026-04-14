@@ -22,14 +22,6 @@ function Footer() {
                     <Link to="/courses">Courses</Link>
                     <Link to="/dashboard">Dashboard</Link>
                 </div>
-
-                <div className="footer-links-group">
-                    <h4>Categories</h4>
-                    <span>Frontend</span>
-                    <span>Backend</span>
-                    <span>Database</span>
-                    <span>DevOps</span>
-                </div>
             </div>
 
             <div className="footer-bottom">

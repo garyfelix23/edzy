@@ -26,7 +26,21 @@ function Login() {
                 localStorage.setItem('token', data.token);
                 localStorage.setItem('userId', data.userId);
                 localStorage.setItem('name', data.name);
-                localStorage.setItem('email', data.email);
+                // localStorage.setItem('email', data.email);
+                localStorage.setItem('role', data.role); 
+
+                if (data.role === 'INSTRUCTOR'){
+                    localStorage.removeItem('redirect');
+                    navigate('/instructor');
+                } else {
+                    const redirect = localStorage.getItem('redirect');
+                    if (redirect) {
+                        localStorage.removeItem('redirect');
+                        navigate(redirect);
+                    } else{
+                        navigate('/');
+                    }
+                }
 
                 // check if user was redirected from a course page
                 const redirect = localStorage.getItem('redirect');
@@ -57,7 +71,7 @@ function Login() {
                     <input
                         type="email"
                         name="email"
-                        placeholder="gary@example.com"
+                        placeholder="john@example.com"
                         value={formData.email}
                         onChange={handleChange}
                         required

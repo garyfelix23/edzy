@@ -7,6 +7,8 @@ import com.revature.edzybackend.repository.CourseRepository;
 import com.revature.edzybackend.repository.EnrollmentRepository;
 import com.revature.edzybackend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
@@ -113,6 +115,47 @@ public class EnrollmentController {
 
         return enrollmentRepository.save(e);
     }
+
+//    @PostMapping("/{enrollmentId}/complete-module/{moduleId}")
+//    public ResponseEntity<Enrollment> completeModule(
+//            @PathVariable String enrollmentId,
+//            @PathVariable String moduleId) {
+//
+//        try {
+//            Enrollment e = enrollmentRepository.findById(enrollmentId)
+//                    .orElseThrow(() -> new RuntimeException("Enrollment not found"));
+//
+//            String userId = getUserId();
+//
+//            if (!e.getUserId().equals(userId)) {
+//                return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+//            }
+//
+//            Courses course = courseRepository.findById(e.getCourseId())
+//                    .orElseThrow(() -> new RuntimeException("Course not found"));
+//
+//            if (!e.getCompletedModules().contains(moduleId)) {
+//                e.getCompletedModules().add(moduleId);
+//            }
+//
+//            int totalModules = course.getModules() != null
+//                    ? course.getModules().size() : 0;
+//
+//            if (totalModules > 0) {
+//                int progress = (e.getCompletedModules().size() * 100) / totalModules;
+//                e.setProgressPercentage(progress);
+//                e.setCompleted(progress >= 100);
+//            }
+//
+//            Enrollment saved = enrollmentRepository.save(e);
+//            System.out.println("Saved enrollment: " + saved); // ← debug log
+//            return ResponseEntity.ok(saved);
+//
+//        } catch (Exception ex) {
+//            System.out.println("Error in completeModule: " + ex.getMessage());
+//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+//        }
+//    }
 
     @PutMapping("/{id}/progress")
     public Enrollment updateProgress(@PathVariable String id, @RequestParam int percent){

@@ -68,7 +68,50 @@
 }
 
 .form-group input:focus {
+    border-color: #ff0000 !important;
+}
+
+.role-selector {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 6px;
+}
+
+.role-option {
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 16px 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.role-option:hover {
     border-color: #ff0000;
+}
+
+.role-active {
+    border-color: #ff0000;
+    background: #fee9e9;
+}
+
+.role-icon {
+    font-size: 28px;
+}
+
+.role-label {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.role-desc {
+    font-size: 12px;
+    color: #6b7280;
 }
 
 .login-btn {

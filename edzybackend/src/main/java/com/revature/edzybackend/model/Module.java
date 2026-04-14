@@ -5,7 +5,8 @@ import java.util.UUID;
 
 @Data
 public class Module {
-    private String moduleId = UUID.randomUUID().toString();
+//    private String moduleId = UUID.randomUUID().toString();
+    private String moduleId;
     private String title;
     private String type;
     private String videoLink;

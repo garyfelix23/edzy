@@ -19,6 +19,8 @@ function Dashboard() {
             return;
         }
 
+        setLoading(true);
+
         getDashboard()
             .then(data => {
                 // to check if the data is Array

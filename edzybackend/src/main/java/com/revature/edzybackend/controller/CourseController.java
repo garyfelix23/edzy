@@ -30,6 +30,13 @@ public class CourseController {
         return courseService.getCourseById(id);
     }
 
+    // Instructor - get all courses
+    @GetMapping("/courses/my-courses")
+    public List<Courses> findMyCourses(){
+        return courseService.getAllInstructorCourses();
+    }
+
+    // Only instructor can create courses
     @PostMapping("/courses")
     public Courses createCourse(@RequestBody Courses course){
         return courseService.createCourse(course);

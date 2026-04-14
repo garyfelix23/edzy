@@ -146,7 +146,8 @@ function Home() {
                     </Link>
                 </div>
             </section>
-
+            
+            {/* click to activate section */}
             {!token && (
                 <section className="cta-section">
                     <h2 className="cta-h2">Ready to Start Learning?</h2>

@@ -13,7 +13,7 @@ function Courses() {
 
     // this useEffect runs only once when components mounts (ComponentDidMount)
     useEffect(() => {
-        getAllCourses()  // API call 
+        getAllCourses()  
             .then(data => {
                 // this to ensure the response is actually an array
                 if (Array.isArray(data)){

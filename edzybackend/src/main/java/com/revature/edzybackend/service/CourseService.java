@@ -26,8 +26,11 @@ public class CourseService {
 
     // To get logged-in user id
     private String getUserId(){
-        String email = SecurityContextHolder.getContext()
-                .getAuthentication().getName();
+        // the SecurityContextHolder is a spring security class that holds the security context for the current thread
+        String email = SecurityContextHolder
+                .getContext()  //
+                .getAuthentication()
+                .getName();
         return userRepo.findByEmail(email).orElseThrow().getId();
     }
 
@@ -39,6 +42,12 @@ public class CourseService {
         return courseRepo.findById(id).orElseThrow();
     }
 
+    public List<Courses> getAllInstructorCourses(){
+        String instructorId = getUserId();
+        return courseRepo.findByInstructorId(instructorId);
+    }
+
+    // only instructor can create courses
     public Courses createCourse(Courses course){
         String instructorId = getUserId();
         course.setInstructorId(instructorId);

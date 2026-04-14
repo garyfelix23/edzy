@@ -224,7 +224,11 @@
     font-size: 18px;
     font-weight: 700;
     color: #1f2937;
-    margin: 0 0 8px;
+    margin: 10px 0 8px;
+    font-family: "Arima", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
 }
 
 .enroll-section p {
@@ -232,6 +236,10 @@
     color: #6b7280;
     margin: 0 0 20px;
     line-height: 1.6;
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .btn-start-learning {
@@ -245,6 +253,10 @@
     font-weight: 700;
     cursor: pointer;
     transition: all 0.2s;
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .btn-start-learning:hover {
@@ -377,6 +389,187 @@
     font-size: 18px;
     color: #6b7280;
 }
+
+/* Module Player */
+.module-player {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.module-player-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f9fafb;
+    border-radius: 12px;
+    padding: 16px 20px;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.active-module-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 4px;
+}
+
+.active-module-duration {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.btn-complete-module {
+    background: #ff0000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.btn-complete-module:hover {
+    background: #b60202;
+}
+
+.btn-complete-module:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.module-done-badge {
+    color: #065f46;
+    background: #d1fae5;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* Text Content */
+.text-content {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid #e5e7eb;
+}
+
+.text-content h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 14px;
+}
+
+.text-content p {
+    font-size: 15px;
+    color: #4b5563;
+    line-height: 1.8;
+}
+
+/* Modules Sidebar */
+.modules-sidebar {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid #e5e7eb;
+}
+
+.modules-sidebar h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.modules-list-player {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.module-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 1.5px solid transparent;
+}
+
+.module-row:hover:not(.module-locked) {
+    background: #fee9e9;
+    border-color: #ff0000;
+}
+
+.module-active {
+    background: #fee9e9;
+    border-color: #ff0000 !important;
+}
+
+.module-completed {
+    background: #f0fdf4;
+}
+
+.module-locked {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.module-row-icon {
+    font-size: 16px;
+    width: 24px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.module-row-info {
+    flex: 1;
+}
+
+.module-row-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 4px;
+}
+
+.module-row-meta {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-size: 11px;
+    color: #6b7280;
+}
+
+.module-count {
+    text-align: center;
+    font-size: 13px;
+    color: #6b7280;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+/* Type badges */
+.type-badge {
+    padding: 2px 8px;
+    border-radius: 99px;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.type-video { background: #dbeafe; color: #1e40af; }
+.type-text  { background: #d1fae5; color: #065f46; }
+.type-both  { background: #ede9fe; color: #6d28d9; }
 
 @media (max-width: 900px) {
     .course-detail-layout {

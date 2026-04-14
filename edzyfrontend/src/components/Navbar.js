@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {Link, useNavigate} from 'react-router-dom'; 
 import './Navbar.css';
 
@@ -6,7 +6,8 @@ function Navbar(){
     
     const navigate = useNavigate();
     const token = localStorage.getItem('token');
-    const name = localStorage.getItem('name');
+    // const name = localStorage.getItem('name');
+    const role = localStorage.getItem('role'); 
 
     const handleLogout = () => {
         localStorage.clear();
@@ -27,8 +28,23 @@ function Navbar(){
 
                     {token ? (
                         <>
-                            <Link to="/dashboard" className="nav-link">Dashboard</Link>
-                            {/* <span className="nav-user">Howdy, {name}</span> */}
+                            {/* USER Dashboard */}
+                            {role === 'STUDENT' && (
+                                <Link to="/dashboard" className="nav-link">
+                                    Dashboard
+                                </Link>
+                            )}
+                            {/* INSTRUCTOR Dashboard */}
+                            {role === 'INSTRUCTOR' && (
+                                <>
+                                    <Link to="/instructor" className='nav-link'>
+                                        My Course
+                                    </Link>
+                                    <Link to="/instructor/add-course" className='nav-link'>
+                                        Add Course
+                                    </Link>
+                                </>
+                            )}
                             <button onClick={handleLogout} className="btn-logout">
                                 Logout
                             </button>

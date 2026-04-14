@@ -1,0 +1,264 @@
+.instructor-div{
+    /* border: 2px solid red; */
+    padding: 10px 10px 0px 10px;
+}
+
+.instructor-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 0 60px;
+}
+
+.instructor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-family: "Arima", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.instructor-header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #1f2937;
+    margin-bottom: 6px;
+}
+
+.instructor-header p {
+    color: #6b7280;
+    font-size: 15px;
+}
+
+.btn-add-course {
+    background: #ff0000;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.btn-add-course:hover {
+    background: #b60202;
+}
+
+/* Stats */
+.instructor-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.istat-card {
+    background: white;
+    border-radius: 14px;
+    padding: 24px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    border: 1px solid #f3f4f6;
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.istat-number {
+    font-size: 36px;
+    font-weight: 900;
+    color: #ff0000;
+    margin-bottom: 4px;
+}
+
+.istat-label {
+    font-size: 13px;
+    color: #6b7280;
+    font-weight: 600;
+}
+
+.section-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #f3f4f6;
+    font-family: "Arima", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Course cards */
+.instructor-courses {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.instructor-course-card {
+    background: white;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 16px 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    border: 1px solid #f3f4f6;
+    transition: border-color 0.2s;
+}
+
+.instructor-course-card:hover {
+    border-color: #ff0000;
+}
+
+.icard-img {
+    width: 100px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.icard-body {
+    flex: 1;
+}
+
+.icard-top {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
+.icard-category {
+    font-size: 11px;
+    font-weight: 700;
+    color: #ff0000;
+    text-transform: uppercase;
+}
+
+.icard-level {
+    font-size: 11px;
+    font-weight: 700;
+    color: #6b7280;
+    background: #f3f4f6;
+    padding: 1px 8px;
+    border-radius: 99px;
+}
+
+.icard-body h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 4px;
+}
+
+.icard-body p {
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 6px;
+}
+
+.icard-modules {
+    font-size: 12px;
+    color: #6b7280;
+    font-weight: 600;
+}
+
+.icard-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.btn-edit {
+    background: #ede9fe;
+    color: #4f46e5;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-edit:hover {
+    background: #4f46e5;
+    color: white;
+}
+
+.btn-delete {
+    background: #fee2e2;
+    color: #ef4444;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-delete:hover {
+    background: #ef4444;
+    color: white;
+}
+
+/* Empty state */
+.empty-instructor {
+    text-align: center;
+    padding: 80px;
+    background: #f9fafb;
+    border-radius: 16px;
+    border: 2px dashed #e5e7eb;
+}
+
+.empty-instructor span {
+    font-size: 56px;
+    display: block;
+    margin-bottom: 16px;
+}
+
+.empty-instructor p {
+    font-size: 18px;
+    color: #6b7280;
+    margin-bottom: 20px;
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.empty-instructor a {
+    background: #ff0000;
+    color: white;
+    padding: 12px 28px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all .2s ease;
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.empty-instructor a:hover{
+    background: #b60202;
+}

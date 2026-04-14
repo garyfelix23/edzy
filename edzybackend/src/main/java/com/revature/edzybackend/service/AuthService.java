@@ -48,7 +48,7 @@ public class AuthService {
         // the password is encrypted before saved to mongodb
         user.setPassword(passwordEncoder.encode(req.getPassword()));
         // saves the data to mongodb
-        String role = (req.getRole() != null && !req.getRole().isBlank()) ? req.getRole().toUpperCase() : "User";
+        String role = (req.getRole() != null && !req.getRole().isBlank()) ? req.getRole().toUpperCase() : "STUDENT";
         user.setRole(role);
         userRepository.save(user);
 

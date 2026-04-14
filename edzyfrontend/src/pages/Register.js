@@ -8,34 +8,38 @@ function Register() {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
-        password: ''
+        password: '',
+        role: 'USER'  // default role
     });
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
 
+    // when user updates the form fields, this function works
     const handleChange = (e) => {
+        // adding data with the existing formData
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
+    // this function works when user submits the form
     const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError('');
-    setLoading(true);
+        e.preventDefault();
+        setError('');
+        setLoading(true);
 
-    try {
-        const data = await registerUser(formData);
+        try {
+            const data = await registerUser(formData);
 
-        if (data.token) {
-            navigate('/login');
-        } else {
-            setError(data.message || 'Registration failed. Try again.');
+            if (data.token) {
+                navigate('/login');
+            } else {
+                setError(data.message || 'Registration failed. Try again.');
+            }
+        } catch (err) {
+            setError('Something went wrong. Please try again.');
+        } finally {
+            setLoading(false);
         }
-    } catch (err) {
-        setError('Something went wrong. Please try again.');
-    } finally {
-        setLoading(false);
-    }
-};
+    };
 
     return (
         <div className="form-container">
@@ -48,7 +52,7 @@ function Register() {
                     <input
                         type="text"
                         name="name"
-                        placeholder="Gary Felix"
+                        placeholder="Example"
                         value={formData.name}
                         onChange={handleChange}
                         required
@@ -60,7 +64,7 @@ function Register() {
                     <input
                         type="email"
                         name="email"
-                        placeholder="gary@example.com"
+                        placeholder="john@example.com"
                         value={formData.email}
                         onChange={handleChange}
                         required
@@ -77,6 +81,26 @@ function Register() {
                         onChange={handleChange}
                         required
                     />
+                </div>
+
+                {/* Role Selection */}
+                <div className='form-group'>
+                    <label>I am a</label>
+                    <div className='role-selector'>
+                        <div className={`role-option ${formData.role === 'STUDENT' ? 'role-active' : ''}`}
+                            onClick={() => setFormData({...formData, role: 'STUDENT'})}
+                        >
+                            <span className="role-label">Student</span>
+                            <span className="role-desc">I want to learn</span>
+                        </div>
+                        <div
+                            className={`role-option ${formData.role === 'INSTRUCTOR' ? 'role-active' : ''}`}
+                            onClick={() => setFormData({ ...formData, role: 'INSTRUCTOR' })}
+                        >
+                            <span className="role-label">Instructor</span>
+                            <span className="role-desc">I want to teach</span>
+                        </div>
+                    </div>
                 </div>
 
                 {error && <p className="error-msg">{error}</p>}
