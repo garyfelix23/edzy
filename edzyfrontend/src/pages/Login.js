@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { loginUser } from '../services/api.js';
-import './Auth.css';
+import './styles/Auth.css';
 
 function Login() {
     const navigate = useNavigate();

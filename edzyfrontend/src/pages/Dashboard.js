@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getDashboard } from '../services/api.js';
-import './Dashboard.css';
+import './styles/Dashboard.css';
 
 function Dashboard() {
     const navigate = useNavigate();
@@ -47,7 +47,7 @@ function Dashboard() {
         <div className="dashboard-page">
             <div className="dashboard-header">
                 <div>
-                    <h1>Welcome back, {name}! 👋</h1>
+                    <h1>Welcome back, {name}!</h1>
                     <p>Track your learning progress and continue where you left off.</p>
                 </div>
                 <button

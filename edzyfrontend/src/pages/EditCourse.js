@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getCourseById, updateCourse } from '../services/api.js';
-import './AddCourse.css';
+import './styles/AddCourse.css';
 
 function EditCourse() {
     const { id } = useParams();

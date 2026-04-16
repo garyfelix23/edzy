@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { deleteCourse, getAllInstructorCourses } from '../services/api.js';
-import './InstructorDashboard.css';
+import './styles/InstructorDashboard.css';
 
 function InstructorDashboard(){
     const navigate = useNavigate();

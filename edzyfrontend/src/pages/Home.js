@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { getAllCourses } from '../services/api';
-import './Home.css';
+import './styles/Home.css';
 
 function Home() {
     const [courses, setCourses] = useState([]);

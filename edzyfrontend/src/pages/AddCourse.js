@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { addCourse } from "../services/api.js";
-import './AddCourse.css';
+import './styles/AddCourse.css';
 
 function AddCourse() {
 
